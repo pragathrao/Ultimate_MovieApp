@@ -76,7 +76,7 @@ function Spotlight({ children }) {
     console.log(list)
 
     const actions = search.map((action) => {
-        return (W
+        return (
             {
                 title: action.title,
                 description: action.overview,
