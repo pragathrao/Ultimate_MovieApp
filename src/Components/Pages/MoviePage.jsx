@@ -1,3 +1,4 @@
+import { Button } from '@mantine/core'
 import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { CreateContext } from '../../Context/Context'
@@ -10,7 +11,6 @@ function MoviePage() {
 
     const { id } = useParams()
     const MovieData = masterData.find((data) => parseInt(id) === data.id)
-    console.log(MovieData)
 
 
     return (
@@ -21,7 +21,7 @@ function MoviePage() {
                     <div className="hero-data">
                         <h1>{MovieData.title}</h1>
                         <p>{MovieData.overview}</p>
-                        {/* <Button>Play</Button> */}
+                        <Button>Play</Button>
                     </div>
                 </div>
                 {/* <div className="also-Watch">

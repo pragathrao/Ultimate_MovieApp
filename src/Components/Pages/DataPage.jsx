@@ -34,15 +34,18 @@ function DataPage() {
     const { state: { masterData }, AddtoGenre } = useContext(CreateContext)
 
     const [Form, setForm] = useState("")
+    const [data, setData] = useState(masterData)
 
     function HandleForm(e) {
         e.preventDefault()
         setForm(e.target.value)
     }
     function Logic() {
-        const Data = SearchAPI(Form)
+        const Data = SearchAPI(Form).then((item) => setData(item))
+    }
 
-        return Data
+    function GenreLogic(id) {
+        Genres(id).then((item) => setData(item))
     }
 
     useEffect(() => {
@@ -59,6 +62,7 @@ function DataPage() {
 
 
 
+
     return (
         <DataPageStyles>
             <div className="left">
@@ -70,16 +74,16 @@ function DataPage() {
                         size="xs"
                         value={Form}
                         onChange={HandleForm}
-                        onClick = {(e) => e.preventDefault()}
+                        onClick={(e) => e.preventDefault()}
                     />
 
                 </Link>
                 <div className="genres">
-                    {genres.map((item) => <LeftButton className="GenreButton" onClick={() => Genres(item.id)}><h5 >{item.name}</h5></LeftButton>)}
+                    {genres.map((item) => <LeftButton className="GenreButton" onClick={() => GenreLogic(item.id)}><h5 >{item.name}</h5></LeftButton>)}
                 </div>
             </div>
             <div className="right">
-                {masterData.map((item) => <Link to={`/movie/${item.id}`}><Card url={item.poster_path} title={item.title} rating={item.vote_average} /> </Link>)}
+                {data.map((item) => <Link to={`/movie/${item.id}`}><Card url={item.poster_path} title={item.title} rating={item.vote_average} /> </Link>)}
             </div>
         </DataPageStyles>
     )

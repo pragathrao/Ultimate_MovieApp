@@ -84,7 +84,7 @@ export const genres = [
 function Genres(genre) {
 
     // const { AddtoGenre } = useContext(CreateContext)
-    const key = "8eefc62922325b5c7206cf4e152825af"
+    const key = import.meta.env.VITE_REACT_APP_MOVIE_API
 
 
 

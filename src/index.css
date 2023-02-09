@@ -19,11 +19,6 @@
   padding: 0;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
 
 a:hover {
   color: #535bf2;
@@ -71,9 +66,10 @@ button:focus-visible {
     background-color: #ffffff;
   }
 
+  /* 
   a:hover {
     color: #747bff;
-  }
+  } */
 
   button {
     background-color: #f9f9f9;
@@ -89,12 +85,12 @@ button:focus-visible {
 img {
   border-radius: 1rem;
   max-width: 100%;
-
 }
 
 .Body {
   max-width: 100%;
   padding: 0 3rem;
+  position: relative;
 
 }
 
@@ -102,11 +98,61 @@ img {
   margin: 4rem 0;
 }
 
-.GenreButton{
-  padding: 0.5rem!important;
-  font-size: 1.8rem!important;
+.GenreButton {
+  padding: 0.5rem !important;
+  font-size: 1.8rem !important;
 }
 
-.genres{
+.genres {
   padding-left: 3rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.59rem;
+}
+
+
+.mantine-tbarly {
+  background-color: var(--side-color);
+}
+
+.input {
+  margin: 2rem 0;
+}
+
+.formbutton {
+  background-color: #535bf2;
+}
+
+.img {
+  width: 1430px !important;
+  height: 480px !important;
+  border-radius: 2rem;
+  object-fit: cover;
+}
+
+.Carousal {
+  margin-top: 3rem
+}
+
+.listicon {
+  display: flex;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #000910;
+  padding: 3rem;
+  border-radius: 100px;
+  gap: 0.3rem;
+  align-items: center;
+  flex-direction: column;
+  z-index: 100000;
+
+}
+
+.svg {
+  height: 3rem;
+  width: 3rem;
 }

@@ -18,7 +18,7 @@ grid-template-columns: 1fr minmax(10rem, 15rem);
 
 .right-bar{
     background: #010000!important ;
-    grid-row: 1/3 ;
+    grid-row: 1/-1 ;
     grid-column: 2/3 ;
 }
 

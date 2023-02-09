@@ -1,8 +1,9 @@
 import axios from 'axios';
 
-const popular = "https://api.themoviedb.org/3/movie/popular?api_key=8eefc62922325b5c7206cf4e152825af&language=en-US&page=1"
-const Trending = "https://api.themoviedb.org/3/trending/movie/day?api_key=8eefc62922325b5c7206cf4e152825af"
-const mcu = "https://api.themoviedb.org/3/discover/movie?api_key=8eefc62922325b5c7206cf4e152825af&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=2&with_companies=420&with_watch_monetization_types=flatrate"
+const key = import.meta.env.VITE_REACT_APP_MOVIE_API
+const popular = `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=en-US&page=1`
+const Trending = `https://api.themoviedb.org/3/trending/movie/day?api_key=${key}`
+const mcu = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=2&with_companies=420&with_watch_monetization_types=flatrate`
 
 
 function Api() {

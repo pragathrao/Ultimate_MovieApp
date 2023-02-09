@@ -3,11 +3,9 @@ import { UnstyledButton } from "@mantine/core";
 
 export const LeftbarStyles = styled.div`
 background-color: var(--side-color);
+height: 100%;
 
-svg{
-        height: 3rem ;
-        width: 3rem;
-    }
+
 
     .Button-Text{
         display: flex;
@@ -25,10 +23,6 @@ svg{
         margin-top: 20rem;
     }
 
-
-
-
-    
 `
 
 export const LeftButton = styled(UnstyledButton)`

@@ -10,7 +10,8 @@ const Data = {
     mcu: [],
     search: [],
     genre: [],
-    list: []
+    list: [],
+    listData: []
 }
 
 function Context({ children }) {
@@ -59,12 +60,23 @@ function Context({ children }) {
             payload: item
         })
     }
+    function AddtoListData(item) {
+        dispatch({
+            type: "ADD_TO_LIST_DATA",
+            payload: item
+        })
+    }
+    function ClearList() {
+        dispatch({
+            type: "CLEAR_LIST",
+        })
+    }
 
     console.log(state)
 
 
     return (
-        <CreateContext.Provider value={{ AddtoMaster, state, AddtoTrending, AddtoMCU, AddtoSearch, AddToPopular, AddtoGenre, AddtoList }}>
+        <CreateContext.Provider value={{ AddtoMaster, state, AddtoTrending, AddtoMCU, AddtoSearch, AddToPopular, AddtoGenre, AddtoList, AddtoListData, ClearList }}>
             {children}
         </CreateContext.Provider>
     )

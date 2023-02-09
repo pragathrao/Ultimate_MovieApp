@@ -65,7 +65,6 @@ function Spotlight({ children }) {
     const AddButton = styled.button`
     position: absolute;
     bottom: 0px;
-    left: 5px;
     
 `
 
@@ -73,8 +72,8 @@ function Spotlight({ children }) {
     position: relative;
     
 `
-    console.log(list)
 
+    console.log(list)
     const actions = search.map((action) => {
         return (
             {
@@ -83,9 +82,7 @@ function Spotlight({ children }) {
                 onTrigger: () => navigate(`/movie/${action.id}`),
                 image: `https://image.tmdb.org/t/p/original${action.poster_path}`,
                 list: list.find((item) => item.title === action.title) ? "your' Set" : "Add Your List",
-                AddToList: () => AddtoList([...list, action])
-
-
+                AddToList: () => AddtoList(action)
             }
         )
 

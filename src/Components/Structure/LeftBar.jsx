@@ -23,11 +23,11 @@ function LeftBar() {
     }
 
 
- 
+
     const MenuData = [
-        { logo: <MdHome />, title: "Home", link: "/", onClick: () => navigate("/") },
-        { logo: <MdSearch />, title: "Lists", link: "", onClick: () => setOpened(true) },
-        { logo: <MdMovie />, title: "Explore", link: "/Explore", onClick: "" },
+        { logo: <MdHome className='svg' />, title: "Home", link: "/", onClick: () => navigate("/") },
+        { logo: <MdSearch className='svg' />, title: "Lists", link: "", onClick: () => setOpened(true) },
+        { logo: <MdMovie className='svg' />, title: "Explore", link: "/Explore", onClick: "" },
     ];
     return (
         <LeftbarStyles>
