@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Badge, Center, Group, Image, Text, UnstyledButton } from '@mantine/core';
+import { Badge, Button, Center, Group, Image, Text, Tooltip, UnstyledButton } from '@mantine/core';
 import { SpotlightProvider, useSpotlight } from '@mantine/spotlight'
 import React, { useContext, useState } from 'react'
 import { TbSearch } from 'react-icons/tb'
@@ -8,14 +8,8 @@ import { CreateContext } from '../../Context/Context';
 
 function Spotlight({ children }) {
 
-    const { state: { search, list }, AddtoList } = useContext(CreateContext)
-    const [text, setText] = useState(false)
+    const { state: { search, list, drawer }, AddtoList } = useContext(CreateContext)
     const navigate = useNavigate()
-
-    function Set() {
-        setText(true)
-    }
-
 
     const SpotlightAction = [
         {
@@ -43,7 +37,7 @@ function Spotlight({ children }) {
     flex : 1;
 `
 
-    const Button = styled(UnstyledButton)`
+    const AButton = styled(UnstyledButton)`
     position: relative;
     width: 100%;
     padding: 1rem 1.2rem;
@@ -62,9 +56,20 @@ function Spotlight({ children }) {
     
 `
 
-    const AddButton = styled.button`
+    const AddButton = styled(Button)`
     position: absolute;
     bottom: 0px;
+    background-color: transparent;
+    padding: 0;
+    margin-left: 1.3rem ;
+    width: fit-content;
+    border-radius: 100%;
+    border: none;
+
+    &:hover{
+        background-color: transparent;
+
+    }
     
 `
 
@@ -99,7 +104,7 @@ function Spotlight({ children }) {
     }) {
         return (
             <Grouped spacing="lg">
-                <Button
+                <AButton
                     tabIndex={-1}
                     onMouseDown={(event) => event.preventDefault()}
                     onClick={onTrigger}
@@ -121,10 +126,28 @@ function Spotlight({ children }) {
                             )}
                         </Wrapper>
                     </Group>
-                </Button>
-                {actions.length > 0 ? <AddButton>
-                    <Badge variant="gradient" gradient={{ from: 'indigo', to: 'cyan' }} onClick={action.AddToList}>{action.list}</Badge> :
-                </AddButton> : ""}
+                </AButton>
+                {
+                    drawer === true ?
+                        actions.length > 0 ?
+                            action.list === "your' Set" ?
+                                <Tooltip label="Added Already Mate">
+                                    <AddButton
+                                        data-disabled
+                                        sx={{ '&[data-disabled]': { pointerEvents: 'all', padding: "0px", background: "none" } }}
+                                        onClick={(event) => event.preventDefault()}
+                                    >
+                                        <Badge variant="gradient" gradient={{ from: 'teal', to: 'lime', deg: 105 }}>You'r Set</Badge>
+
+                                    </AddButton>
+                                </Tooltip>
+                                :
+                                <AddButton onClick={action.AddToList}>
+                                    <Badge variant="gradient" gradient={{ from: 'indigo', to: 'cyan' }}>Add to List</Badge>
+                                </AddButton>
+                            : ""
+                        : ""
+                }
 
             </Grouped>
         );
@@ -155,5 +178,7 @@ function Spotlight({ children }) {
         </SpotlightProvider>
     )
 }
+
+
 
 export default Spotlight

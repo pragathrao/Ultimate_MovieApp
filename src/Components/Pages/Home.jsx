@@ -1,3 +1,4 @@
+import { Button, Tooltip } from '@mantine/core'
 import { useSpotlight } from '@mantine/spotlight'
 import React, { useContext, useEffect } from 'react'
 import SearchAPI from '../../API/SearchAPI'

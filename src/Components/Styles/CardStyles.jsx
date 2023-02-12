@@ -25,7 +25,7 @@ export const CardWrapper = styled.div`
         }
     }
     
-    .img{
+    .image{
         display: flex ;
         img{
             height:40rem !important;

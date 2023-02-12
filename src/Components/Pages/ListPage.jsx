@@ -16,6 +16,10 @@ function ListPage() {
         justify-content: center;
         align-items: center;
         margin-bottom: 1rem;
+
+        h3{
+            font-size: 3rem;
+        }
     `
 
     return (

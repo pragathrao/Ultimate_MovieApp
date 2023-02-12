@@ -11,7 +11,8 @@ const Data = {
     search: [],
     genre: [],
     list: [],
-    listData: []
+    listData: [],
+    drawer: false
 }
 
 function Context({ children }) {
@@ -71,12 +72,18 @@ function Context({ children }) {
             type: "CLEAR_LIST",
         })
     }
+    function SetDrawer(boolean) {
+        dispatch({
+            type: "SET_DRAWER",
+            payload: boolean
+        })
+    }
 
     console.log(state)
 
 
     return (
-        <CreateContext.Provider value={{ AddtoMaster, state, AddtoTrending, AddtoMCU, AddtoSearch, AddToPopular, AddtoGenre, AddtoList, AddtoListData, ClearList }}>
+        <CreateContext.Provider value={{ AddtoMaster, state, AddtoTrending, AddtoMCU, AddtoSearch, AddToPopular, AddtoGenre, AddtoList, AddtoListData, ClearList, SetDrawer }}>
             {children}
         </CreateContext.Provider>
     )

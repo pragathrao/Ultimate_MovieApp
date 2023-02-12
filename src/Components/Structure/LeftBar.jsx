@@ -1,14 +1,15 @@
 import { Text } from '@mantine/core'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { LeftbarStyles, LeftButton } from '../Styles/LeftbarStyles'
 import { MdSearch, MdSettings, MdLogout, MdMovie, MdHome } from "react-icons/md";
 import { Link, useNavigate } from 'react-router-dom';
 import ListDrawer from './ListDrawer';
+import { CreateContext } from '../../Context/Context';
 
 
 const Settings = [
-    { logo: <MdSettings />, title: "Settings" },
-    { logo: <MdLogout />, title: "Logout" },
+    { logo: <MdSettings className='svg' />, title: "Settings" },
+    { logo: <MdLogout className='svg' />, title: "Logout" },
 ]
 
 function LeftBar() {
@@ -16,17 +17,23 @@ function LeftBar() {
     const [open, setOpened] = useState(false)
 
     const navigate = useNavigate()
+    const { SetDrawer } = useContext(CreateContext)
+
+    function Initialit() {
+        setOpened(true)
+        SetDrawer(true)
+    }
 
 
     function Changeit(data) {
         setOpened(data)
+        SetDrawer(data)
     }
-
 
 
     const MenuData = [
         { logo: <MdHome className='svg' />, title: "Home", link: "/", onClick: () => navigate("/") },
-        { logo: <MdSearch className='svg' />, title: "Lists", link: "", onClick: () => setOpened(true) },
+        { logo: <MdSearch className='svg' />, title: "Lists", link: "", onClick: () => Initialit() },
         { logo: <MdMovie className='svg' />, title: "Explore", link: "/Explore", onClick: "" },
     ];
     return (

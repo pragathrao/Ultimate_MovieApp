@@ -31,16 +31,6 @@ function Reducer(state, action) {
                 ...state, genre: [...action.payload]
             }
         case "ADD_TO_LIST":
-            // const data = state.list?.reduce((acc, curr) => {
-            //     let obj = acc.find((item) => item.id === curr.id)
-            //     if (obj) {
-            //         return acc
-            //     } else {
-            //         return acc.concat([curr])
-            //     }
-            // }, [])
-
-            // console.log(data)
             return {
                 ...state, list: [...state.list, action.payload]
             }
@@ -51,6 +41,11 @@ function Reducer(state, action) {
         case "CLEAR_LIST":
             return {
                 ...state, list: []
+            }
+        case "SET_DRAWER":
+            console.log(action.payload)
+            return {
+                ...state, drawer: action.payload
             }
         default:
             break;
