@@ -19,7 +19,8 @@ function Explore({ classA, data }) {
                 includeGapInSize
                 loop
                 breakpoints={[
-                    { maxWidth: 'md', slideSize: '50%' },
+                    { maxWidth: '1500', slideSize: '33.333%' },
+                    { maxWidth: '1200', slideSize: '50%' },
                     { maxWidth: 'sm', slideSize: '100%', slideGap: 0 },
                 ]} styles={{
                     control: {
