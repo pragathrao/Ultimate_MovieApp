@@ -3,25 +3,10 @@ import { Carousel } from '@mantine/carousel'
 import { Text } from '@mantine/core'
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { Box } from '../Styles/ExploreStyles'
 
-function Explore({ data }) {
+function Explore({ classA, data }) {
 
-    const Box = styled.div`
-    img{
-        position: relative;
-    }
-        div{
-     position: absolute;
-    background-color: #29252598;
-    padding: 0.5rem 0.3rem;
-    z-index: 100;
-    bottom: 1rem;
-    left: 2rem;
-    width: 80%;
-    text-align: start!important ;
-
-    }
-    `
     return (
         <div>
             <Carousel
@@ -30,8 +15,9 @@ function Explore({ data }) {
                 slideGap="xs"
                 align="start"
                 slidesToScroll={4}
-                className="explore"
+                className={classA}
                 includeGapInSize
+                loop
                 breakpoints={[
                     { maxWidth: 'md', slideSize: '50%' },
                     { maxWidth: 'sm', slideSize: '100%', slideGap: 0 },
@@ -48,7 +34,7 @@ function Explore({ data }) {
                 {data?.map((data) => {
                     return (
                         <Carousel.Slide className='slide'>
-                            <Link to={`movie/${data.id}`}>
+                            <Link to={`/movie/${data.id}`}>
                                 <Box>
                                     <img src={`https://image.tmdb.org/t/p/w500${data.backdrop_path}`} alt="" />
                                     <div>

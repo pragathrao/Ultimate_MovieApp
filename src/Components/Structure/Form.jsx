@@ -1,4 +1,3 @@
-import styled from '@emotion/styled';
 import { TextInput, Checkbox, Button, Group, Box } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { openSpotlight } from '@mantine/spotlight';
@@ -17,20 +16,16 @@ function Form() {
         },
     });
 
-    const { state: { list }, AddtoListData } = useContext(CreateContext)
-
-
-
-
-
+    const { state: { list }, AddtoListData, ClearList } = useContext(CreateContext)
 
     return (
         <Box sx={{ maxWidth: 300 }} mx="auto">
-            <form onSubmit={form.onSubmit((values) => AddtoListData({
-                list: list.filter((item,
-                    index) => list.indexOf(item) === index), name: values.name
-            }))}>
-                <TextInput withAsterisk placeholder="Enter Your title" className='input'{...form.getInputProps('name')} />
+            <form onSubmit={
+                form.onSubmit((values) => AddtoListData({
+                    list: list.filter((item, index) => list.indexOf(item) === index), name: values.name
+                }))
+            }>
+                <TextInput withAsterisk label="Enter The Name of the List" placeholder="Enter Your title" className='input'{...form.getInputProps('name')} />
                 <LeftButton className="formbutton" onClick={() => openSpotlight()}>Choose Your Movies</LeftButton>
                 <Group position="right" mt="md">
                     <Button type="submit">Submit</Button>

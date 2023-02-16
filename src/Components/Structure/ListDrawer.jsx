@@ -5,15 +5,10 @@ import { CreateContext } from '../../Context/Context';
 
 function ListDrawer({ data, changeit }) {
 
-    const { state: { list }, ClearList } = useContext(CreateContext)
-
-
-
-
+    const { state: { list } } = useContext(CreateContext)
 
     function Close() {
         changeit(false)
-        ClearList()
 
     }
 

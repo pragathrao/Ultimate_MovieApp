@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { Input } from '@mantine/core'
+import { Input, Loader } from '@mantine/core'
 import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Genres, { genres } from '../../API/Genres'
@@ -31,7 +31,7 @@ const DataPageStyles = styled.div`
 
 function DataPage() {
 
-    const { state: { masterData }, AddtoGenre } = useContext(CreateContext)
+    const { state: { masterData } } = useContext(CreateContext)
 
     const [Form, setForm] = useState("")
     const [data, setData] = useState(masterData)
@@ -41,7 +41,7 @@ function DataPage() {
         setForm(e.target.value)
     }
     function Logic() {
-        const Data = SearchAPI(Form).then((item) => setData(item))
+        SearchAPI(Form).then((item) => setData(item))
     }
 
     function GenreLogic(id) {
@@ -60,32 +60,38 @@ function DataPage() {
         }
     }, [Logic, Form])
 
+    console.log(data)
+
 
 
 
     return (
-        <DataPageStyles>
-            <div className="left">
-                <Link to="/">
-                    <h2>Movies !!!!!</h2>
-                    <Input
-                        icon={<TbSearch />}
-                        placeholder="Search"
-                        size="xs"
-                        value={Form}
-                        onChange={HandleForm}
-                        onClick={(e) => e.preventDefault()}
-                    />
+        <>
+            {data.length > 1 ?
+                <DataPageStyles>
+                    <div className="left">
+                        <Link to="/">
+                            <h2>Movies !!!!!</h2>
+                            <Input
+                                icon={<TbSearch />}
+                                placeholder="Search"
+                                size="xs"
+                                value={Form}
+                                onChange={HandleForm}
+                                onClick={(e) => e.preventDefault()}
+                            />
 
-                </Link>
-                <div className="genres">
-                    {genres.map((item) => <LeftButton className="GenreButton" onClick={() => GenreLogic(item.id)}><h5 >{item.name}</h5></LeftButton>)}
-                </div>
-            </div>
-            <div className="right">
-                {data.map((item) => <Link to={`/movie/${item.id}`}><Card url={item.poster_path} title={item.title} rating={item.vote_average} /> </Link>)}
-            </div>
-        </DataPageStyles>
+                        </Link>
+                        <div className="genres">
+                            {genres.map((item) => <LeftButton className="GenreButton" onClick={() => GenreLogic(item.id)}><h5 >{item.name}</h5></LeftButton>)}
+                        </div>
+                    </div>
+                    <div className="right">
+                        {data.map((item) => <Link to={`/movie/${item.id}`}><Card url={item.poster_path} title={item.title} rating={item.vote_average} /> </Link>)}
+                    </div>
+                </DataPageStyles> : <Loader size="xl" />
+            }
+        </>
     )
 }
 

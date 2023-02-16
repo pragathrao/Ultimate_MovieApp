@@ -83,11 +83,7 @@ export const genres = [
 
 function Genres(genre) {
 
-    // const { AddtoGenre } = useContext(CreateContext)
     const key = import.meta.env.VITE_REACT_APP_MOVIE_API
-
-
-
 
     const url = `https://api.themoviedb.org/3/discover/movie?with_genres=${genre}&sort_by=revenue.desc&api_key=${key}`
     const result = axios.get(url).then((res) => res.data.results).catch((err) => console.log(err))

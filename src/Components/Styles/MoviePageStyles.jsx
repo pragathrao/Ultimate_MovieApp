@@ -8,13 +8,13 @@ function MoviePageStyles({ children, Movieurl }) {
 
 
     const Styles = styled.div`
-background: var(--background-color) ;
-background: linear-gradient(to top, #3204fdba, #9907facc), url(${url}) no-repeat center center/cover ;
-background-blend-mode: multiply;
-min-height: 100vh;
-color: white ;
-display: grid;
-grid-template-columns: 1fr minmax(10rem, 15rem);
+    background: linear-gradient(to top, #3204fdba, #9907facc), url(${url}) no-repeat center center/cover ;
+    background-blend-mode: multiply;
+    min-height: 100vh;
+    color: white ;
+    display: grid;
+    grid-template-columns: 1fr minmax(10rem, 20rem);
+    overflow: hidden;
 
 .right-bar{
     background: #010000!important ;
@@ -22,20 +22,9 @@ grid-template-columns: 1fr minmax(10rem, 15rem);
     grid-column: 2/3 ;
 }
 
-.also-Watch{
-    grid-column:1/2!important ;
-    margin-left: 15rem;
-    margin-right: 15rem ;
 
-    h3{
-        margin-bottom: 2rem ;
-    }
-}
 .hero{
-    display: flex;
-    margin-top: 20rem;
-    margin-left: 15rem;
-    max-width: 70rem ;
+    margin: 20rem 10rem 0 10rem;
 
     &-image{
         margin-left: 10rem ;

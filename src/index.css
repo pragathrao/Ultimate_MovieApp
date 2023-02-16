@@ -94,9 +94,6 @@ img {
 
 }
 
-.explore {
-  margin: 4rem 0;
-}
 
 .GenreButton {
   padding: 0.5rem !important;
@@ -155,4 +152,19 @@ a {
 .svg {
   height: 3rem;
   width: 3rem;
+}
+
+.list_p {
+  font-size: 3rem;
+  font-weight: 600;
+  margin: 2rem;
+  text-transform: capitalize;
+}
+
+.explore {
+  margin: 4rem 0;
+}
+
+.box {
+  margin: 0 1rem
 }

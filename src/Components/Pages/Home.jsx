@@ -46,9 +46,9 @@ function Home() {
                 <LeftBar />
                 <div className="Body">
                     <Hero />
-                    <Explore data={trending} />
-                    <Explore data={mcu} />
-                    <Explore data={popular} />
+                    <Explore data={trending} classA="explore" />
+                    <Explore data={mcu} classA="explore" />
+                    <Explore data={popular} classA="explore" />
                 </div>
             </div>
         </>
