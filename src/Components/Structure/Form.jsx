@@ -25,7 +25,7 @@ function Form() {
                     list: list.filter((item, index) => list.indexOf(item) === index), name: values.name
                 }))
             }>
-                <TextInput withAsterisk label="Enter The Name of the List" placeholder="Enter Your title" className='input'{...form.getInputProps('name')} />
+                <TextInput withAsterisk label="Enter The Name of the List" placeholder="Enter Your title" {...form.getInputProps('name')} />
                 <LeftButton className="formbutton" onClick={() => openSpotlight()}>Choose Your Movies</LeftButton>
                 <Group position="right" mt="md">
                     <Button type="submit">Submit</Button>
