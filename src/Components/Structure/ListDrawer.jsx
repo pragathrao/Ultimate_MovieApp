@@ -17,7 +17,7 @@ function ListDrawer({ data, changeit }) {
             <Drawer
                 opened={data}
                 onClose={() => Close()}
-                title="Register"
+                title="Add Bookmarks"
                 padding="xl"
                 size="xl"
 

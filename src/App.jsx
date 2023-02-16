@@ -8,7 +8,7 @@ import { Link, Route, Routes } from 'react-router-dom'
 import MoviePage from './Components/Pages/MoviePage'
 import { useDocumentTitle, useDocumentVisibility } from '@mantine/hooks'
 import ListPage from './Components/Pages/ListPage'
-import { MdSearch } from 'react-icons/md'
+import { FaBookmark } from 'react-icons/Fa'
 
 function App() {
 
@@ -38,8 +38,7 @@ function App() {
       </Routes>
       <Link to="/List">
         <div className='listicon'>
-          <MdSearch className='svg' />
-          <p>List</p>
+          <FaBookmark className='svg' />
         </div>
       </Link>
     </Spotlight>

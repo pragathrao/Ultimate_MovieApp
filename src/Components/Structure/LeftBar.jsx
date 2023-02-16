@@ -1,7 +1,8 @@
 import { Text } from '@mantine/core'
 import React, { useContext, useState } from 'react'
 import { LeftbarStyles, LeftButton } from '../Styles/LeftbarStyles'
-import { MdSearch, MdSettings, MdLogout, MdMovie, MdHome } from "react-icons/md";
+import { MdSettings, MdLogout, MdMovie, MdHome } from "react-icons/md";
+import { BsFillBookmarkPlusFill } from "react-icons/bs";
 import { Link, useNavigate } from 'react-router-dom';
 import ListDrawer from './ListDrawer';
 import { CreateContext } from '../../Context/Context';
@@ -33,7 +34,7 @@ function LeftBar() {
 
     const MenuData = [
         { logo: <MdHome className='svg' />, title: "Home", link: "/", onClick: () => navigate("/") },
-        { logo: <MdSearch className='svg' />, title: "Lists", link: "", onClick: () => Initialit() },
+        { logo: <BsFillBookmarkPlusFill className='svg' />, title: "Bookmark", link: "", onClick: () => Initialit() },
         { logo: <MdMovie className='svg' />, title: "Explore", link: "/Explore", onClick: "" },
     ];
     return (
