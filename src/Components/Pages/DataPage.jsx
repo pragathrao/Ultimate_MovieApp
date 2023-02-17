@@ -85,7 +85,7 @@ function DataPage() {
                         </div>
                     </div>
                 </div>
-                {Loading === false ?
+                {Loading === false || data === masterData ?
                     <div className="right">
                         {data.map((item) => <Link to={`/movie/${item.id}`}><Card url={item.poster_path} title={item.title} rating={item.vote_average} /> </Link>)}
                     </div> : <Loader size="xl" />
