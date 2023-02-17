@@ -10,6 +10,8 @@ import { useDocumentTitle, useDocumentVisibility } from '@mantine/hooks'
 import ListPage from './Components/Pages/ListPage'
 import { FaBookmark } from 'react-icons/Fa'
 
+
+
 function App() {
 
   const { AddtoMaster, AddtoTrending, AddtoMCU, AddToPopular } = useContext(CreateContext)
@@ -25,8 +27,6 @@ function App() {
 
   const documentState = useDocumentVisibility();
   useDocumentTitle(`${documentState === 'visible' ? 'Movies are Lovin you ❤' : 'Movies Want you to come back 😢'} `)
-  console.log(import.meta.env.VITE_REACT_APP_MOVIE_API)
-
 
   return (
     <Spotlight>

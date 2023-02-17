@@ -8,11 +8,12 @@ import Header from '../Structure/Header'
 import Hero from '../Structure/Hero'
 import LeftBar from '../Structure/LeftBar'
 
+export const key = import.meta.env.VITE_REACT_APP_MOVIE_API
+
+
 function Home() {
 
     const { query, opened } = useSpotlight();
-
-
 
     const { state: { trending, mcu, popular }, AddtoSearch, AddtoMaster } = useContext(CreateContext)
 

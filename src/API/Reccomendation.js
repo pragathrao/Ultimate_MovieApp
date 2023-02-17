@@ -1,12 +1,19 @@
 import axios from "axios"
-import { useCallback, useEffect, useState } from "react"
+import { key } from "../Components/Pages/Home"
 
-const key = import.meta.env.VITE_REACT_APP_MOVIE_API
 function Reccomendation(movie_id) {
 
     const url = `https://api.themoviedb.org/3/movie/${movie_id}/recommendations?api_key=${key}&language=en-US&page=1`
+    const video = `https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${key}&language=en-US`
 
-    const Data = axios.get(url).then((res) => res).catch((err) => console.log(err))
+    const Data = axios.all([axios.get(url), axios.get(video)]).then((res) => {
+        const Video = res[1].data.results
+        const Reco = res[0].data.results
+
+        return (
+            [Reco, Video]
+        )
+    }).catch((err) => console.log(err))
 
     return Data
 }

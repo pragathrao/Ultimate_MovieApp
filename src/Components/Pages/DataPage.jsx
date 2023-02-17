@@ -1,33 +1,17 @@
-import styled from '@emotion/styled'
 import { Input, Loader } from '@mantine/core'
 import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import Genres, { genres } from '../../API/Genres'
+import Genres from '../../API/Genres'
 import { CreateContext } from '../../Context/Context'
 import Card from '../Structure/Card'
 import { LeftButton } from '../Styles/LeftbarStyles'
 import { TbSearch } from 'react-icons/tb'
 import SearchAPI from '../../API/SearchAPI'
+import axios from 'axios'
+import { DataPageStyles } from '../Styles/DataPageStyles'
+import { key } from './Home'
 
 
-
-const DataPageStyles = styled.div`
- width: 100%;
-  display: grid;
-  grid-template-columns: 20rem 1fr;
-  .left{
-      background-color: var(--side-color);
-  }
-
-  .right{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 30rem);
-    gap: 2rem;
-    justify-content: center;
-  }
-
-    
-`
 
 function DataPage() {
 
@@ -35,6 +19,7 @@ function DataPage() {
 
     const [Form, setForm] = useState("")
     const [data, setData] = useState(masterData)
+    const [genres, setGenres] = useState([])
 
     function HandleForm(e) {
         e.preventDefault()
@@ -60,10 +45,12 @@ function DataPage() {
         }
     }, [Logic, Form])
 
-    console.log(data)
+    useEffect(() => {
+        const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${key}&language=en-US`
+        axios.get(url).then((res) => setGenres(res.data.genres))
+    }, [])
 
-
-
+    console.log(genres)
 
     return (
         <>
@@ -83,7 +70,7 @@ function DataPage() {
 
                         </Link>
                         <div className="genres">
-                            {genres.map((item) => <LeftButton className="GenreButton" onClick={() => GenreLogic(item.id)}><h5 >{item.name}</h5></LeftButton>)}
+                            {genres?.map((item) => <LeftButton className="GenreButton" onClick={() => GenreLogic(item.id)}><h5 >{item.name}</h5></LeftButton>)}
                         </div>
                     </div>
                     <div className="right">

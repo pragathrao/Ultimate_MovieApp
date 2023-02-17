@@ -36,12 +36,29 @@ function MoviePageStyles({ children, Movieurl }) {
 }
 
 .hero-data{
-    margin-bottom: 10rem;
-    justify-self: center;
+    margin-bottom: 3.5rem;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start ;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+
+    .hero-poster{
+        flex: 0 0 50%;
+        display: flex;
+        justify-content: center;
+
+        img{
+            width: 50%;
+            text-align: center;
+
+        }
+    }
     
+    .hero-info{
+    p{
+        font-size: 1.7rem;
+        /* width: 70%; */
+    }
     
 
     h1{
@@ -50,7 +67,7 @@ function MoviePageStyles({ children, Movieurl }) {
         line-height:1.3!important ;
     }
     button{
-        margin-top: 6rem ;
+        margin-top: 3rem ;
         div{
             span{
                 padding: 2rem 8rem;
@@ -59,6 +76,7 @@ function MoviePageStyles({ children, Movieurl }) {
         }
 
     }
+}
 } 
 `
 
