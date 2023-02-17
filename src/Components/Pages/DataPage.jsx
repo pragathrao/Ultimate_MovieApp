@@ -20,6 +20,8 @@ function DataPage() {
     const [Form, setForm] = useState("")
     const [data, setData] = useState(masterData)
     const [genres, setGenres] = useState([])
+    const [Loading, setLoading] = useState(true)
+
 
     function HandleForm(e) {
         e.preventDefault()
@@ -30,7 +32,11 @@ function DataPage() {
     }
 
     function GenreLogic(id) {
-        Genres(id).then((item) => setData(item))
+        Genres(id).then((item) => {
+            setData(item)
+            setLoading(false)
+
+        })
     }
 
     useEffect(() => {
@@ -54,9 +60,9 @@ function DataPage() {
 
     return (
         <>
-            {data.length > 1 ?
-                <DataPageStyles>
-                    <div className="left">
+            <DataPageStyles>
+                <div className="left">
+                    <div className="innerleft">
                         <Link to="/">
                             <h2>Movies !!!!!</h2>
                             <Input
@@ -70,14 +76,21 @@ function DataPage() {
 
                         </Link>
                         <div className="genres">
-                            {genres?.map((item) => <LeftButton className="GenreButton" onClick={() => GenreLogic(item.id)}><h5 >{item.name}</h5></LeftButton>)}
+                            {genres?.map((item) => <LeftButton className="GenreButton" onClick={() => {
+                                GenreLogic(item.id)
+                                setLoading(true)
+
+                            }
+                            }><h5 >{item.name}</h5></LeftButton>)}
                         </div>
                     </div>
+                </div>
+                {Loading === false ?
                     <div className="right">
                         {data.map((item) => <Link to={`/movie/${item.id}`}><Card url={item.poster_path} title={item.title} rating={item.vote_average} /> </Link>)}
-                    </div>
-                </DataPageStyles> : <Loader size="xl" />
-            }
+                    </div> : <Loader size="xl" />
+                }
+            </DataPageStyles>
         </>
     )
 }

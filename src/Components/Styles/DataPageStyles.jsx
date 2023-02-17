@@ -15,4 +15,9 @@ export const DataPageStyles = styled.div`
     justify-content: center;
   }
 
+  .innerleft{
+    position: sticky;
+    top: 0;
+  }
+
 `
