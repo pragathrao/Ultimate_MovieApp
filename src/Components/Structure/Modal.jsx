@@ -1,12 +1,10 @@
 import { useState } from 'react';
-import { Modal, Button, Group, AspectRatio } from '@mantine/core';
-import { MdExitToApp } from 'react-icons/md';
+import { Modal, Button, AspectRatio } from '@mantine/core';
 
 function ModalComp({ id }) {
     const [opened, setOpened] = useState(false);
 
     const trailer = id?.find((data) => data.type = "Trailer")
-    console.log(trailer)
 
     return (
         <>

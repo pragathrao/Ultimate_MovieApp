@@ -21,8 +21,6 @@ function Header() {
                 />
                 <div className="avatar">
                     <Avatar radius="xl" size={35}>HE</Avatar>
-                    {/* <Text component='p'> User</Text> */}
-
                 </div>
             </div>
         </Wrapper>

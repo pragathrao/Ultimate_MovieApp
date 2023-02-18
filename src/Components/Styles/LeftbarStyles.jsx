@@ -16,7 +16,7 @@ height: 100%;
 
     .sticky{
         position: sticky;
-        top: 0;
+        top: 8rem;
     }
 
     .settings{

@@ -26,12 +26,15 @@ function MoviePage() {
             setLoading(false)
         })
         Reccomendation(id).then((res) => setData(res))
-    }, [])
+    }, [id])
 
     return (
         <>
             {Loading === false ?
                 <MoviePageStyles Movieurl={MovieData?.backdrop_path}>
+                    <div className="right-bar">
+                        <LeftBar />
+                    </div>
                     <div className="hero">
                         <div className="hero-data">
                             <div className="hero-poster">
@@ -39,7 +42,7 @@ function MoviePage() {
                             </div>
                             <div className="hero-info">
                                 <h1>{MovieData.title}</h1>
-                                {MovieData.genres?.map((item) => <Badge variant="gradient" gradient={{ from: 'teal', to: 'lime', deg: 105 }}>{item.name}</Badge>)}
+                                {MovieData.genres?.map((item) => <Badge className='badge' variant="gradient" gradient={{ from: 'teal', to: 'lime', deg: 105 }}>{item.name}</Badge>)}
                                 <p>{MovieData.overview}</p>
                                 <ModalComp id={MovieData?.videos?.results} />
                             </div>
@@ -48,9 +51,6 @@ function MoviePage() {
                             <h3>People Also Watch</h3>
                             <Explore data={Data[0]?.length > 0 ? Data[0] : []} slides={4} slideSize="20%" slideGap="lg" />
                         </div>
-                    </div>
-                    <div className="right-bar">
-                        <LeftBar />
                     </div>
                 </MoviePageStyles > : <Loader />}
 

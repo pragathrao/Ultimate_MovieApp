@@ -20,6 +20,7 @@ function ListDrawer({ data, changeit }) {
                 title="Add Bookmarks"
                 padding="xl"
                 size="xl"
+                sx={{ zIndex: "1000000" }}
 
             >
                 <Form />

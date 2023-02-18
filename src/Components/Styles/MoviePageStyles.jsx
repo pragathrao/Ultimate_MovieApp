@@ -13,13 +13,12 @@ function MoviePageStyles({ children, Movieurl }) {
     min-height: 100vh;
     color: white ;
     display: grid;
-    grid-template-columns: 1fr minmax(10rem, 20rem);
+    grid-template-columns: minmax(10rem, 20rem) 1fr ;
     overflow: hidden;
-
+    
 .right-bar{
     background: #010000!important ;
     grid-row: 1/-1 ;
-    grid-column: 2/3 ;
 }
 
 
@@ -39,8 +38,12 @@ function MoviePageStyles({ children, Movieurl }) {
     margin-bottom: 3.5rem;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-around;
+
+    .badge{
+        margin: 0 0.3rem;
+    }
 
     .hero-poster{
         flex: 0 0 50%;
@@ -55,16 +58,18 @@ function MoviePageStyles({ children, Movieurl }) {
     }
     
     .hero-info{
+
+        margin-bottom: 4rem;
     p{
         font-size: 1.7rem;
-        /* width: 70%; */
+        margin-top: 1.5rem;
     }
     
 
     h1{
         font-size:6rem;
-        margin-bottom: 1rem ;
-        line-height:1.3!important ;
+        margin-bottom: 0.5rem ;
+        line-height:1.3 ;
     }
     button{
         margin-top: 3rem ;

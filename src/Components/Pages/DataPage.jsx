@@ -75,6 +75,7 @@ function DataPage() {
                             />
 
                         </Link>
+                        <h3 className='h1'>Filter By Genre</h3>
                         <div className="genres">
                             {genres?.map((item) => <LeftButton className="GenreButton" onClick={() => {
                                 GenreLogic(item.id)
@@ -85,11 +86,11 @@ function DataPage() {
                         </div>
                     </div>
                 </div>
-                {Loading === false || data === masterData ?
-                    <div className="right">
-                        {data.map((item) => <Link to={`/movie/${item.id}`}><Card url={item.poster_path} title={item.title} rating={item.vote_average} /> </Link>)}
-                    </div> : <Loader size="xl" />
-                }
+                {/* {Loading === false || data === masterData ? */}
+                <div className="right">
+                    {data.map((item) => <Link to={`/movie/${item.id}`}><Card url={item.poster_path} title={item.title} rating={item.vote_average} /> </Link>)}
+                </div>
+                {/* : <Loader size="xl" />} */}
             </DataPageStyles>
         </>
     )
