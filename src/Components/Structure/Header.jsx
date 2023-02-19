@@ -13,14 +13,14 @@ function Header() {
             </Link>
             <div className="head">
                 <Input
-                    icon={<TbSearch />}
+                    icon={<TbSearch />} 
                     placeholder="Search"
                     radius="lg"
                     size="xs"
                     onClick={() => openSpotlight()}
                 />
                 <div className="avatar">
-                    <Avatar radius="xl" size={35}>HE</Avatar>
+                    <Avatar radius="xl" size={35}>MT</Avatar>
                 </div>
             </div>
         </Wrapper>
