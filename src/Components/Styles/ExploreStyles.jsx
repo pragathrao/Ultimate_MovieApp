@@ -6,7 +6,7 @@ export const Box = styled.div`
         object-fit: contain;
     }
     div{
-     position: absolute;
+    position: absolute;
     background-color: #29252598;
     padding: 0.5rem 0.3rem;
     z-index: 100;

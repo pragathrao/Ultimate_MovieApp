@@ -47,8 +47,11 @@ function Home() {
                 <LeftBar />
                 <div className="Body">
                     <Hero />
+                    <p className='c-text'>Trending</p>
                     <Explore data={trending} classA="explore" />
+                    <p className='c-text'>Marvel Cinematic Universe </p>
                     <Explore data={mcu} classA="explore" />
+                    <p className='c-text'>Popular</p>
                     <Explore data={popular} classA="explore" />
                 </div>
             </div>

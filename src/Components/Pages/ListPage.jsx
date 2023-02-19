@@ -31,10 +31,10 @@ function ListPage() {
             </BoxT>
             <Box className='box'>
                 {
-                    listData.map((item) => {
-                        console.log(item.list)
+                    listData.map((item, index, array) => {
+                        console.log(array)
                         return (
-                            <Box>
+                            <Box className='inner_box'>
                                 <Text component='p' className='list_p'>{item.name}</Text>
                                 <Explore data={item.list} />
                             </Box>

@@ -126,10 +126,11 @@ a {
 }
 
 .img {
-  width: calc(100%-14px);
-  min-height: 480px !important;
+  width: 100vw;
+  height: 480px !important;
   border-radius: 2rem;
   object-fit: cover;
+  position: relative;
 }
 
 .Carousal {
@@ -163,12 +164,21 @@ a {
   text-transform: capitalize;
 }
 
-.explore {
-  margin: 4rem 0;
+.explore{
+  margin-bottom: 3rem;
+}
+
+.c-text{
+  font-size: 2rem;
+  padding: 2rem 0;
 }
 
 .box {
   margin: 0 1rem
+}
+
+.inner_box{
+  margin-bottom: 4rem;
 }
 
 .mantine-ittua2 {
@@ -202,4 +212,18 @@ a {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
+}
+
+.hero-details {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+}
+
+.hero-details h4 {
+  font-size: 4rem;
+}
+
+.hero-details h5 {
+  font-size: 2rem;
 }

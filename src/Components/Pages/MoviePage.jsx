@@ -24,7 +24,7 @@ function MoviePage() {
         Reccomendation(id).then((res) => setData(res))
     }, [id])
 
-    // console.log(ata[0])
+    console.log(Data[0])
 
     return (
         <>

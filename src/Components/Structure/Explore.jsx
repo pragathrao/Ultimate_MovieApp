@@ -34,7 +34,7 @@ function Explore({ classA, data }) {
             >
                 {data?.map((data) => {
                     return (
-                        <Carousel.Slide className='slide'>
+                        <Carousel.Slide>
                             <Link to={`/movie/${data.id}`}>
                                 <Box>
                                     <img src={`https://image.tmdb.org/t/p/w500${data.backdrop_path ? data.backdrop_path : data.poster_path}`} alt="" />

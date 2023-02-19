@@ -19,14 +19,14 @@ function Spotlight({ children }) {
             icon: <TbSearch size={18} />,
         },
         {
-            title: 'Dashboard',
-            description: 'Get full information about current system status',
+            title: 'Bookmarks',
+            description: 'Get All Your BookMarks',
             onTrigger: () => console.log('Dashboard'),
             icon: <TbSearch size={18} />,
         },
         {
-            title: 'Documentation',
-            description: 'Visit documentation to lean more about all features',
+            title: 'About Me',
+            description: 'know about me',
             onTrigger: () => console.log('Documentation'),
             icon: <TbSearch size={18} />,
         },
@@ -78,8 +78,7 @@ function Spotlight({ children }) {
     
 `
 
-    console.log(list)
-    const actions = search.map((action) => {
+        const actions = search.map((action) => {
         return (
             {
                 title: action.title,
