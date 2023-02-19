@@ -3,8 +3,9 @@ import styled from "@emotion/styled";
 export const Box = styled.div`
     img{
         position: relative;
+        object-fit: contain;
     }
-        div{
+    div{
      position: absolute;
     background-color: #29252598;
     padding: 0.5rem 0.3rem;

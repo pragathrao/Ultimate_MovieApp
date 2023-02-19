@@ -24,6 +24,8 @@ function MoviePage() {
         Reccomendation(id).then((res) => setData(res))
     }, [id])
 
+    // console.log(ata[0])
+
     return (
         <>
             {Loading === false ?

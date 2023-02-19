@@ -37,7 +37,7 @@ function Explore({ classA, data }) {
                         <Carousel.Slide className='slide'>
                             <Link to={`/movie/${data.id}`}>
                                 <Box>
-                                    <img src={`https://image.tmdb.org/t/p/w500${data.backdrop_path}`} alt="" />
+                                    <img src={`https://image.tmdb.org/t/p/w500${data.backdrop_path ? data.backdrop_path : data.poster_path}`} alt="" />
                                     <div>
                                         <Text component='h4' size={16}>{data.title}</Text>
                                         <Text component='h5'>{data.release_date.slice(0, 4)}</Text>
