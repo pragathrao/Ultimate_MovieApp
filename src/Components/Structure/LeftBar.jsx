@@ -41,7 +41,7 @@ function LeftBar() {
         <LeftbarStyles>
             <div className='sticky'>
                 <Link to="/">
-                    <h4 className='h1'>MovieTopia</h4>
+                    <h4 className='h1 lefth1'>MovieTopia</h4>
                 </Link>
                 {MenuData.map((data) =>
                     <div className='Menubar'>

@@ -27,8 +27,8 @@ export const DataPageStyles = styled.div`
     padding: 4rem 2rem 0 2rem ;
 
     h3{
-    margin-top: 2rem ;
-    margin-bottom: 1.2rem ;
+    margin-top: 4rem ;
+    margin-bottom: 2rem ;
     font-size: 3rem ;
 }
 

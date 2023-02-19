@@ -56,6 +56,7 @@ function MoviePageStyles({ children, Movieurl }) {
 
         }
     }
+
     
     .hero-info{
 
@@ -69,7 +70,7 @@ function MoviePageStyles({ children, Movieurl }) {
     h1{
         font-size:6rem;
         margin-bottom: 0.5rem ;
-        line-height:1.3 ;
+        line-height:1.2 ;
     }
     button{
         margin-top: 3rem ;
@@ -83,6 +84,13 @@ function MoviePageStyles({ children, Movieurl }) {
     }
 }
 } 
+.also-Watch{
+        h3{
+            font-size: 2rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1.8rem;
+        }
+    }
 `
 
     return (

@@ -1,4 +1,4 @@
-import { TextInput, Checkbox, Button, Group, Box } from '@mantine/core';
+import { TextInput, Checkbox, Button, Group, Box, Popover, Text } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { openSpotlight } from '@mantine/spotlight';
 import { useContext } from 'react';
@@ -12,11 +12,11 @@ function Form() {
         },
 
         validate: {
-            name: (value) => (value.length < 2 ? 'First name must have at least 2 letters' : null),
+            name: (value) => (value.length < 3 ? 'List name must have at least 3 letters' : null),
         },
     });
 
-    const { state: { list }, AddtoListData, ClearList } = useContext(CreateContext)
+    const { state: { list }, AddtoListData } = useContext(CreateContext)
 
     return (
         <Box sx={{ maxWidth: 300 }} mx="auto">
@@ -28,11 +28,23 @@ function Form() {
                 <TextInput withAsterisk label="Enter The Name of the List" placeholder="Enter Your title" {...form.getInputProps('name')} />
                 <LeftButton className="formbutton" onClick={() => openSpotlight()}>Choose Your Movies</LeftButton>
                 <Group position="right" mt="md">
-                    <Button type="submit">Submit</Button>
+                    <Popover width={200} position="bottom" withArrow shadow="md">
+                        <Popover.Target>
+                            <Button type="submit">Submit</Button>
+                        </Popover.Target>
+
+                        {list.length > 0 ?
+                            < Popover.Dropdown >
+                                <Text size="sm">List Created, Sucessfully</Text>
+                            </Popover.Dropdown> : ""
+                        }
+
+                    </Popover>
                 </Group>
             </form>
-        </Box>
+        </Box >
     );
 }
 
 export default Form
+
