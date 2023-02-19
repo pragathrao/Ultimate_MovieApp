@@ -9,7 +9,7 @@ function Header() {
     return (
         <Wrapper>
             <Link to="/">
-                <h4 className='h1'>MOFW != BORING</h4>
+                <h4 className='h1'>MovieTopia</h4>
             </Link>
             <div className="head">
                 <Input

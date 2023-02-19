@@ -16,10 +16,6 @@ function MoviePage() {
     const [Loading, setLoading] = useState(true)
 
     const { id } = useParams()
-    console.log(MovieData)
-    console.log(id)
-    console.log(Loading)
-
     useEffect(() => {
         MoviePageAPI(id).then(res => {
             setMovieData(res)
@@ -52,7 +48,11 @@ function MoviePage() {
                             <Explore data={Data[0]?.length > 0 ? Data[0] : []} slides={4} slideSize="20%" slideGap="lg" />
                         </div>
                     </div>
-                </MoviePageStyles > : <Loader />}
+                </MoviePageStyles > :
+                <div className="loader">
+                    <Loader size={'xl'} />
+                </div>
+            }
 
         </>
     )

@@ -7,7 +7,6 @@ import Header from '../Structure/Header';
 
 function ListPage() {
     const { state: { listData } } = useContext(CreateContext)
-    console.log(listData)
 
     const BoxT = styled.div`
         min-height: 45vh;
@@ -28,7 +27,7 @@ function ListPage() {
         <>
             <Header />
             <BoxT>
-                <Text component='h3' >Make Lists of your Favorite Movies</Text>
+                <Text component='h3'>Make Lists of your Favorite Movies</Text>
             </BoxT>
             <Box className='box'>
                 {

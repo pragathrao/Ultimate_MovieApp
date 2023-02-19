@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Api from './API/masterAPI'
 import { CreateContext } from './Context/Context'
 import Spotlight from './Components/Structure/Spotlight'
@@ -16,8 +16,9 @@ function App() {
 
   const { AddtoMaster, AddtoTrending, AddtoMCU, AddToPopular } = useContext(CreateContext)
 
+
   useEffect(() => {
-    const MasterData = Api().then((data) => {
+    Api().then((data) => {
       AddtoMaster(data[0]),
         AddtoMCU(data[1]),
         AddToPopular(data[2]),
@@ -31,7 +32,7 @@ function App() {
   return (
     <Spotlight>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home  />} />
         <Route exact path="/Explore" element={<DataPage />} />
         <Route path="/movie/:id" element={<MoviePage />} />
         <Route exact path="/List" element={<ListPage />} />
@@ -47,4 +48,3 @@ function App() {
 
 export default App
 
-// hero width 500 px

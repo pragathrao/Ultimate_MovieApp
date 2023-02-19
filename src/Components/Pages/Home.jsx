@@ -1,4 +1,4 @@
-import { Button, Tooltip } from '@mantine/core'
+import { Button, Loader, Tooltip } from '@mantine/core'
 import { useSpotlight } from '@mantine/spotlight'
 import React, { useContext, useEffect } from 'react'
 import SearchAPI from '../../API/SearchAPI'
@@ -17,9 +17,10 @@ function Home() {
 
     const { state: { trending, mcu, popular }, AddtoSearch, AddtoMaster } = useContext(CreateContext)
 
+
     useEffect(() => {
         const Timeout = setTimeout(() => {
-            const results = SearchAPI(query).then((data) => {
+            SearchAPI(query).then((data) => {
                 if (data && opened == true) {
                     AddtoSearch(data)
                     AddtoMaster(data)
@@ -42,7 +43,6 @@ function Home() {
 
     return (
         <>
-            <Header />
             <div className='App'>
                 <LeftBar />
                 <div className="Body">

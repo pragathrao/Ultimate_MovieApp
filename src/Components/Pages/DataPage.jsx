@@ -34,7 +34,6 @@ function DataPage() {
     function GenreLogic(id) {
         Genres(id).then((item) => {
             setData(item)
-            setLoading(false)
 
         })
     }
@@ -53,45 +52,50 @@ function DataPage() {
 
     useEffect(() => {
         const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${key}&language=en-US`
-        axios.get(url).then((res) => setGenres(res.data.genres))
-    }, [])
+        axios.get(url).then((res) => {
+            setGenres(res.data.genres)
+            setLoading(false)
+        }
+        )
+    }, [data])
 
     console.log(genres)
 
     return (
         <>
-            <DataPageStyles>
-                <div className="left">
-                    <div className="innerleft">
-                        <Link to="/">
-                            <h2>Movies !!!!!</h2>
-                            <Input
-                                icon={<TbSearch />}
-                                placeholder="Search"
-                                size="xs"
-                                value={Form}
-                                onChange={HandleForm}
-                                onClick={(e) => e.preventDefault()}
-                            />
+            {Loading === false ?
+                <DataPageStyles>
+                    <div className="left">
+                        <div className="innerleft">
+                            <Link to="/">
+                                <h2 className='h1'>MovieTopia</h2>
+                                <Input
+                                    icon={<TbSearch />}
+                                    placeholder="Search"
+                                    size="xs"
+                                    value={Form}
+                                    onChange={HandleForm}
+                                    onClick={(e) => e.preventDefault()}
+                                />
 
-                        </Link>
-                        <h3 className='h1'>Filter By Genre</h3>
-                        <div className="genres">
-                            {genres?.map((item) => <LeftButton className="GenreButton" onClick={() => {
-                                GenreLogic(item.id)
-                                setLoading(true)
-
-                            }
-                            }><h5 >{item.name}</h5></LeftButton>)}
+                            </Link>
+                            <h3>Filter By Genre</h3>
+                            <div className="genres">
+                                {genres?.map((item) => <LeftButton className="GenreButton" onClick={() => {
+                                    GenreLogic(item.id)
+                                    setLoading(true)
+                                }
+                                }><h5 >{item.name}</h5></LeftButton>)}
+                            </div>
                         </div>
                     </div>
-                </div>
-                {/* {Loading === false || data === masterData ? */}
-                <div className="right">
-                    {data.map((item) => <Link to={`/movie/${item.id}`}><Card url={item.poster_path} title={item.title} rating={item.vote_average} /> </Link>)}
-                </div>
-                {/* : <Loader size="xl" />} */}
-            </DataPageStyles>
+                    <div className="right">
+                        {data.map((item) => <Link to={`/movie/${item.id}`}><Card url={item.poster_path} title={item.title} rating={item.vote_average} /> </Link>)}
+                    </div>
+                </DataPageStyles>
+                : <div className="loader">
+                    <Loader size={'xl'} />
+                </div>}
         </>
     )
 }
