@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 export const CardWrapper = styled.div`
     box-shadow: 0 1px 3px rgb(0 0 0 / 5%), rgb(0 0 0 / 5%) 0px 10px 15px -5px, rgb(0 0 0 / 4%) 0px 7px 7px; 
     border: 0.1rem solid rgb(55, 58, 64);
-    width: 26.67rem ;
     position: relative;
     color: white ;
 
@@ -28,19 +27,25 @@ export const CardWrapper = styled.div`
     .image{
         display: flex ;
         img{
-            height:40rem !important;
+            max-height:40rem !important;
             max-width: 100%;
             object-fit: contain;
         }
     }
 
+
+
     .caption{
-        position: absolute;
+position: absolute;
   text-align: center;
   bottom: 1rem;
   background-color: #29252598;
   width: 100%;
-  padding: 0.5rem 0.3rem;
+  padding: 0.5rem 0.1rem;
+
+  h3{
+    font-size: 1.4rem;
+  }
 }
     
     `

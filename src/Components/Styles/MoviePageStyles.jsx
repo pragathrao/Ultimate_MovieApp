@@ -12,27 +12,32 @@ function MoviePageStyles({ children, Movieurl }) {
     background-blend-mode: multiply;
     min-height: 100vh;
     color: white ;
-    display: grid;
-    grid-template-columns: minmax(10rem, 20rem) 1fr ;
+    display: flex;
     overflow: hidden;
+    @media only screen and (max-width: 800px) {
+        flex-direction: column;
+        text-align: center;
+}
     
 .right-bar{
     background: #010000!important ;
-    grid-row: 1/-1 ;
+    max-width: 20rem;
 }
+
+@media only screen and (max-width: 500px) {
+    .hero-data{
+    flex-wrap: wrap;
+  }
+}
+
 
 
 .hero{
     margin: 20rem 10rem 0 10rem;
 
-    &-image{
-        margin-left: 10rem ;
-
-        img{
-            height: 40rem!important; ;
-        }
-    }
 }
+
+
 
 .hero-data{
     margin-bottom: 3.5rem;
@@ -53,6 +58,11 @@ function MoviePageStyles({ children, Movieurl }) {
         img{
             width: 50%;
             text-align: center;
+
+            @media only screen and (max-width: 500px) {
+                width: 100%;
+                margin-bottom: 2rem;
+            }
 
         }
     }

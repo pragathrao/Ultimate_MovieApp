@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Box, Container, Text } from '@mantine/core'
+import { Box, Container, MediaQuery, Text } from '@mantine/core'
 import React, { useContext, useState } from 'react'
 import { CreateContext } from '../../Context/Context';
 import Explore from '../Structure/Explore';

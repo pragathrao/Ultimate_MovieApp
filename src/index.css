@@ -15,6 +15,16 @@
 
 }
 
+html {
+  font-size: 62.5%;
+}
+
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 8px;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -31,9 +41,6 @@ body {
   min-height: 100vh;
 }
 
-html {
-  font-size: 62.5%;
-}
 
 h1 {
   font-size: 3.2em;
@@ -67,11 +74,7 @@ button:focus-visible {
     background-color: #ffffff;
   }
 
-  /* 
-  a:hover {
-    color: #747bff;
-  } */
-
+ 
   button {
     background-color: #f9f9f9;
   }
@@ -79,8 +82,16 @@ button:focus-visible {
 
 .App {
   width: 100%;
-  display: grid;
-  grid-template-columns: 20rem 1fr;
+  display: flex;
+
+}
+
+@media only screen and (max-width: 800px) {
+  .App {
+    flex-direction: column;
+
+  }
+
 }
 
 img {
@@ -164,11 +175,11 @@ a {
   text-transform: capitalize;
 }
 
-.explore{
+.explore {
   margin-bottom: 3rem;
 }
 
-.c-text{
+.c-text {
   font-size: 2rem;
   padding: 2rem 0;
 }
@@ -177,7 +188,7 @@ a {
   margin: 0 1rem
 }
 
-.inner_box{
+.inner_box {
   margin-bottom: 4rem;
 }
 
@@ -227,3 +238,4 @@ a {
 .hero-details h5 {
   font-size: 2rem;
 }
+

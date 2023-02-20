@@ -1,4 +1,4 @@
-import { Text } from '@mantine/core'
+import { MediaQuery, Text } from '@mantine/core'
 import React, { useContext, useState } from 'react'
 import { LeftbarStyles, LeftButton } from '../Styles/LeftbarStyles'
 import { MdSettings, MdLogout, MdMovie, MdHome, MdSearch } from "react-icons/md";
@@ -40,38 +40,43 @@ function LeftBar() {
         { logo: <MdMovie className='svg' />, title: "Explore", link: "/Explore", onClick: "" },
     ];
     return (
-        <LeftbarStyles>
-            <div className='sticky'>
-                <Link to="/">
-                    <h4 className='h1 lefth1'>MovieTopia</h4>
-                </Link>
-                {MenuData.map((data) =>
-                    <div className='Menubar'>
-                        <Link to={data.link}>
-                            <LeftButton onClick={data.onClick}>
-                                <div className='Button-Text'>
-                                    {data.logo}
-                                    <Text size="md" component='h6'>{data.title}</Text>
-                                </div>
-                            </LeftButton>
-                        </Link>
-                    </div>
-                )}
-                <div className='settings'>
-                    {Settings.map((data) =>
+        <MediaQuery
+            query="(max-width: 1000px) and (min-width: 100px)"
+            styles={{ display: "none" }}
+        >
+            <LeftbarStyles>
+                <div className='sticky'>
+                    <Link to="/">
+                        <h4 className='h1 lefth1'>MovieTopia</h4>
+                    </Link>
+                    {MenuData.map((data) =>
                         <div className='Menubar'>
-                            <LeftButton>
-                                <div className='Button-Text'>
-                                    {data.logo}
-                                    <Text size="md" component='h6'>{data.title}</Text>
-                                </div>
-                            </LeftButton>
+                            <Link to={data.link}>
+                                <LeftButton onClick={data.onClick}>
+                                    <div className='Button-Text'>
+                                        {data.logo}
+                                        <Text size="md" component='h6'>{data.title}</Text>
+                                    </div>
+                                </LeftButton>
+                            </Link>
                         </div>
                     )}
+                    <div className='settings'>
+                        {Settings.map((data) =>
+                            <div className='Menubar'>
+                                <LeftButton>
+                                    <div className='Button-Text'>
+                                        {data.logo}
+                                        <Text size="md" component='h6'>{data.title}</Text>
+                                    </div>
+                                </LeftButton>
+                            </div>
+                        )}
+                    </div>
                 </div>
-            </div>
-            <ListDrawer data={open} changeit={Changeit} />
-        </LeftbarStyles>
+                <ListDrawer data={open} changeit={Changeit} />
+            </LeftbarStyles>
+        </MediaQuery>
     )
 }
 

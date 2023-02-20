@@ -1,9 +1,10 @@
-import { Badge, Loader } from '@mantine/core'
+import { Badge, Loader, MediaQuery } from '@mantine/core'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import MoviePageAPI from '../../API/MoviePageAPI'
 import Reccomendation from '../../API/Reccomendation'
 import Explore from '../Structure/Explore'
+import Header from '../Structure/Header'
 import LeftBar from '../Structure/LeftBar'
 import ModalComp from '../Structure/Modal'
 import MoviePageStyles from '../Styles/MoviePageStyles'
@@ -24,15 +25,18 @@ function MoviePage() {
         Reccomendation(id).then((res) => setData(res))
     }, [id])
 
-    console.log(Data[0])
 
     return (
         <>
             {Loading === false ?
                 <MoviePageStyles Movieurl={MovieData?.backdrop_path}>
-                    <div className="right-bar">
+                    <MediaQuery
+                        query="(max-width: 800px) and (min-width:100px)"
+                        styles={{ background: "blue", display: "none" }}
+                    >
                         <LeftBar />
-                    </div>
+                    </MediaQuery>
+                    <Header property="none!important" />
                     <div className="hero">
                         <div className="hero-data">
                             <div className="hero-poster">

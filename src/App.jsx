@@ -14,17 +14,7 @@ import { FaBookmark } from 'react-icons/Fa'
 
 function App() {
 
-  const { AddtoMaster, AddtoTrending, AddtoMCU, AddToPopular } = useContext(CreateContext)
 
-
-  useEffect(() => {
-    Api().then((data) => {
-      AddtoMaster(data[0]),
-        AddtoMCU(data[1]),
-        AddToPopular(data[2]),
-        AddtoTrending(data[3])
-    })
-  }, [])
 
   const documentState = useDocumentVisibility();
   useDocumentTitle(`${documentState === 'visible' ? 'Movies are Lovin you ❤' : 'Movies Want you to come back 😢'} `)

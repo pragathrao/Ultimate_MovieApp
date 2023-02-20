@@ -3,7 +3,6 @@ import { UnstyledButton } from "@mantine/core";
 
 export const LeftbarStyles = styled.div`
 background-color: var(--side-color);
-height: 100%;
 
 .lefth1{
     margin-bottom: 3rem;

@@ -2,17 +2,28 @@ import styled from "@emotion/styled";
 
 export const DataPageStyles = styled.div`
  width: 100%;
-  display: grid;
-  grid-template-columns: 30rem 1fr;
+display: flex;
+
+ @media only screen and (max-width: 800px) {
+
+    flex-direction: column;
+
+}
+
+
   .left{
       background-color: var(--side-color);
+      max-width: 30rem;
   }
 
   .right{
     display: grid;
-    grid-template-columns: repeat(auto-fit, 30rem);
+    grid-template-columns: repeat(auto-fit, 20rem);
     gap: 2rem;
     justify-content: center;
+    flex: 1;
+    padding: 3rem;
+
   }
 
   h2{

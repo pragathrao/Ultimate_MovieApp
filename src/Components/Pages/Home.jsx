@@ -1,6 +1,7 @@
-import { Button, Loader, Tooltip } from '@mantine/core'
+import { MediaQuery, } from '@mantine/core'
 import { useSpotlight } from '@mantine/spotlight'
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import Api from '../../API/masterAPI'
 import SearchAPI from '../../API/SearchAPI'
 import { CreateContext } from '../../Context/Context'
 import Explore from '../Structure/Explore'
@@ -15,7 +16,11 @@ function Home() {
 
     const { query, opened } = useSpotlight();
 
-    const { state: { trending, mcu, popular }, AddtoSearch, AddtoMaster } = useContext(CreateContext)
+    const [trending, AddToTrending] = useState([])
+    const [mcu, AddToMCU] = useState([])
+    const [popular, AddToPopular] = useState([])
+
+    const { AddtoSearch } = useContext(CreateContext)
 
 
     useEffect(() => {
@@ -23,7 +28,7 @@ function Home() {
             SearchAPI(query).then((data) => {
                 if (data && opened == true) {
                     AddtoSearch(data)
-                    AddtoMaster(data)
+                    AddToMaster(data)
                 } else if (opened == false) {
                     AddtoSearch([])
                 }
@@ -39,14 +44,25 @@ function Home() {
     }, [query, opened])
 
 
+    useEffect(() => {
+        Api().then((data) => {
+            AddToMCU(data[1]),
+                AddToPopular(data[2]),
+                AddToTrending(data[3])
+        })
+    }, [])
+
+
+
 
 
     return (
         <>
             <div className='App'>
                 <LeftBar />
+                <Header property="none!important" />
                 <div className="Body">
-                    <Hero />
+                    <Hero data={trending} />
                     <p className='c-text'>Trending</p>
                     <Explore data={trending} classA="explore" />
                     <p className='c-text'>Marvel Cinematic Universe </p>
